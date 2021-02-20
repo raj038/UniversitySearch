@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+<body style="background: #74ebd5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5); 
+            background: linear-gradient(to right, #ACB6E5, #74ebd5); 
+            ">
+    <nav class="navbar navbar-dark bg-dark"">
+        <a class="navbar-brand" href="/">University Search</a>
+    </nav>
+
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-9 mx-auto text-white text-center">
+                <h1 class="display-4"> University Finder </h1>
+                <p class="lead mb-0">Find The Best University For You Because You Deserved The Best</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="bg-white p-5 rounded shadow">
+                    <form method="POST" action="/show">
+                        <div class="row mb-2">
+                            <div class="form-group col-md-8">
+                                <input type="text" name="country" list="countryList" placeholder="Enter The Country Name" class="form-control form-control-underlined">
+                                <datalist style="width: 100%" id="countryList">
+                                    <% countryList.forEach( (country) =>{%>
+                                        <option><%=country%></option>
+                                    <%})%>
+                                </datalist> 
+                            </div>
+                            <div class="form-group col-md-3">
+                                <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs')%>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/">University Search</a>
+    </nav>
+    
+    <div style="margin-top: 50px;" class="container">
+        <div class="jumbotron">
+            <h1 class="Display"> These Are Some Prestigious Universities of <%=country.toUpperCase()%></h1>
+            <br>
+            <a class="btn btn-lg  btn-outline-primary" href="/">Go Back</a>
+        </div>
+
+        <!-- Table to print all the Universities of the selected country -->
+        
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">University Name</th>
+                    <th scope="col">State</th>
+                    <th scope="col">University Website</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% universityList.forEach( (university , index)=>{%>
+                    <tr>
+                        <td scope="row"><%=index+1%></td>
+                        <td><%= university.name %></td>
+                        <td><%= university["state-province"]? university["state-province"]: "NA" %></td>
+                        <td><a href=<%= university.web_pages %>><%= university.web_pages[0] %></a></td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+<%- include('partials/footer.ejs')%>
