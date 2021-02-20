@@ -2,7 +2,7 @@ var express    =require('express');
 var fetch      =require('node-fetch');
 var bodyparser =require('body-parser');
 var app        =express();
-var port       = process.env.port || 3000;
+app.set("port", process.env.PORT || 3000)
 
 app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({extended: true}));
@@ -56,4 +56,4 @@ app.post('/show',function(req,res){
 
 });
 
-app.listen(port, () => console.log('http://localhost:'+port));
+app.listen(app.get("port"));
